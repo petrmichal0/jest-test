@@ -40,3 +40,22 @@ describe("getStringInfo", () => {
     expect(getStringInfo("hello").extraInfo).toEqual({});
   });
 });
+
+describe.only("ToUpperCase examples", () => {
+  test.each([
+    {
+      input: "hello",
+      expected: "HELLO",
+    },
+    {
+      input: "heLL-o",
+      expected: "HELL-O",
+    },
+    {
+      input: "heLLo",
+      expected: "HELLO",
+    },
+  ])("$input to UpperCase should be $expected", ({ input, expected }) => {
+    expect(toUpperCase(input)).toBe(expected);
+  });
+});
