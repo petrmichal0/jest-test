@@ -6,7 +6,7 @@ describe("Utils", () => {
     expect(toUpperCase("hello")).toBe("HELLO");
   });
 
-  test.only("returns an info for valid string", () => {
+  test("returns an info for valid string", () => {
     expect(getStringInfo("hello")).toEqual({
       lowerCase: "hello",
       upperCase: "HELLO",
@@ -14,5 +14,29 @@ describe("Utils", () => {
       length: 5,
       extraInfo: {},
     });
+  });
+});
+
+describe("getStringInfo", () => {
+  test("lowerCase", () => {
+    expect(getStringInfo("hello").lowerCase).toBe("hello");
+  });
+  test("upperCase", () => {
+    expect(getStringInfo("hello").upperCase).toBe("HELLO");
+  });
+  test("characters", () => {
+    expect(getStringInfo("hello").characters).toEqual([
+      "h",
+      "e",
+      "l",
+      "l",
+      "o",
+    ]);
+  });
+  test("length", () => {
+    expect(getStringInfo("hello").length).toBe(5);
+  });
+  test("extraInfo", () => {
+    expect(getStringInfo("hello").extraInfo).toEqual({});
   });
 });
