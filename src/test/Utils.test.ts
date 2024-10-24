@@ -41,7 +41,7 @@ describe("getStringInfo", () => {
   });
 });
 
-describe.only("ToUpperCase examples", () => {
+describe("ToUpperCase examples", () => {
   test.each([
     {
       input: "hello",
@@ -57,5 +57,11 @@ describe.only("ToUpperCase examples", () => {
     },
   ])("$input to UpperCase should be $expected", ({ input, expected }) => {
     expect(toUpperCase(input)).toBe(expected);
+  });
+});
+
+describe("Should throw an error for empty string", () => {
+  test.only("empty string", () => {
+    expect(() => toUpperCase("")).toThrow("Input string cannot be empty");
   });
 });

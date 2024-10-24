@@ -1,4 +1,8 @@
 export function toUpperCase(arg: string): string {
+  if (!arg) {
+    throw new Error("Input string cannot be empty");
+  }
+
   return arg.toUpperCase();
 }
 
